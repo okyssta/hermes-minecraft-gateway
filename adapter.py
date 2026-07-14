@@ -84,14 +84,14 @@ def _kill_port(port: int):
 def _mc_format(text: str) -> str:
     # Strip Minecraft section-sign codes — server rejects them
     text = re.sub("\u00a7[0-9a-fklmnor]", "", text)
-    # Convert remaining markdown to plain text
+    # Strip markdown formatting (convert to plain text)
     text = re.sub(r"\*\*(.+?)\*\*", r"\1", text)
     text = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"\1", text)
     text = re.sub(r"__(.+?)__", r"\1", text)
     text = re.sub(r"~~(.+?)~~", r"\1", text)
     text = re.sub(r"`([^`]+)`", r"\1", text)
     text = re.sub(r"```.*?\n(.+?)```", r"\1", text, flags=re.DOTALL)
-    return text
+    return text.strip()
 
 
 # ── Adapter ───────────────────────────────────────────────────────
@@ -214,9 +214,10 @@ class MinecraftPlatformAdapter(BasePlatformAdapter):
     async def send(self, chat_id: str, content: str, reply_to: Optional[str] = None, metadata: Optional[dict] = None, **kwargs) -> SendResult:
         if not self._http_session:
             return SendResult(False, error="no bridge")
-        # Strip non-ASCII chars — Minecraft rejects them
+        # Strip non-ASCII and strip/convert markdown
         text = _mc_format(content)
-        text = text.encode("ascii", "replace").decode("ascii")
+        # Only allow printable ASCII (32-126), tab (9), newline (10)
+        text = "".join(c for c in text if 32 <= ord(c) <= 126 or c in "\t\n")
         # Chunk at MC 256-char limit
         limit = self.MAX_MESSAGE_LENGTH
         if limit < 10:
@@ -254,7 +255,7 @@ class MinecraftPlatformAdapter(BasePlatformAdapter):
         if not self._http_session:
             return SendResult(False, error="no bridge")
         text = _mc_format(content)
-        text = text.encode("ascii", "replace").decode("ascii")
+        text = "".join(c for c in text if 32 <= ord(c) <= 126 or c in "\t\n")
         try:
             async with self._http_session.post(
                 f"http://127.0.0.1:{self.bridge_port}/send",
