@@ -31,7 +31,7 @@
 │  • Polls /messages every 500ms                      │
 │  • Creates per-player Hermes sessions               │
 │  • Chunks responses at 256 characters               │
-│  • Converts markdown → § codes                      │
+│  • Converts markdown to plain text                      │
 │  • Strips non-Latin-1 characters                    │
 │  • Routes tool progress → /tell private             │
 │                                                     │

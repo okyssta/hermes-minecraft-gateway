@@ -13,8 +13,8 @@ Join a Minecraft server with a Mineflayer bot, and every player gets their own H
 
 - **Per-player sessions** — each player gets their own Hermes session (like DMs on Discord)
 - **Full command support** — `$new`, `$help`, `$model`, `$stop` all work in chat
-- **Rich formatting** — use Minecraft § codes for bold, italic, colors
-- **Public chat responses** — Hermes replies in public chat with `§lbold§r`, `§oitalic§r`, colors
+- **Plain text responses** — no markdown, no formatting codes (servers reject them)
+- **Public chat responses** — Hermes replies in public chat
 - **Private tool progress** — terminal/file operations go via `/tell` private whisper
 - **Auto-wander** — the bot wanders, jumps, and looks at nearby players
 - **256-char chunking** — long responses split with `[1/3]` markers
@@ -98,22 +98,6 @@ Join your Minecraft server. The bot (`HermesBot`) will be wandering around.
 | `what's the time?` | Hermes checks and replies |
 
 > **Tip:** The `$` prefix is only needed for commands. Regular chat goes straight to Hermes.
-
-## Minecraft Formatting
-
-Hermes uses Minecraft's § (section-sign) color codes in responses:
-
-| Code | Effect | Example |
-|---|---|---|
-| `§ltext§r` | **Bold** | `§lHello§r` → **Hello** |
-| `§otext§r` | *Italic* | `§oHello§r` → *Hello* |
-| `§ntext§r` | Underline | `§nHello§r` → <ins>Hello</ins> |
-| `§mtext§r` | Strikethrough | `§mHello§r` → ~~Hello~~ |
-| `§7text§r` | Gray (inline code) | `§7const x = 1§r` |
-| `§a` | Green | |
-| `§c` | Red | |
-| `§e` | Yellow | |
-| `§r` | Reset formatting | Always close with `§r` |
 
 ## Configuration Reference
 
