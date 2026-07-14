@@ -1,0 +1,56 @@
+name: minecraft-platform
+label: Minecraft
+kind: platform
+version: 0.1.0
+description: >
+  Minecraft gateway adapter for Hermes Agent.
+  Spawns a Mineflayer bot that joins a Minecraft server, wanders around,
+  and relays chat messages between players and the Hermes agent.
+  Supports offline and Microsoft-authenticated accounts.
+author: Kyssta
+requires_env:
+  - name: MINECRAFT_ENABLED
+    description: "Enable the Minecraft adapter"
+    prompt: "Enable Minecraft? (true/false)"
+    password: false
+  - name: MINECRAFT_SERVER
+    description: "Minecraft server hostname or IP"
+    prompt: "Minecraft server"
+    password: false
+optional_env:
+  - name: MINECRAFT_PORT
+    description: "Minecraft server port (default: 25565)"
+    prompt: "Server port"
+    password: false
+  - name: MINECRAFT_USERNAME
+    description: "Bot username (default: HermesBot)"
+    prompt: "Bot username"
+    password: false
+  - name: MINECRAFT_AUTH
+    description: "Auth mode: offline or microsoft (default: offline)"
+    prompt: "Auth mode (offline/microsoft)"
+    password: false
+  - name: MINECRAFT_PREFIX
+    description: "Chat prefix to trigger bot (e.g. @hermes, empty = all chat)"
+    prompt: "Chat prefix"
+    password: false
+  - name: MINECRAFT_PRIVATE_MESSAGES
+    description: "Reply via /tell private messages instead of public chat (true/false)"
+    prompt: "Use private messages?"
+    password: false
+  - name: MINECRAFT_BRIDGE_PORT
+    description: "Internal bridge HTTP server port (default: 13000)"
+    prompt: "Bridge port"
+    password: false
+  - name: MINECRAFT_ALLOWED_USERS
+    description: "Comma-separated Minecraft usernames allowed to talk to the bot"
+    prompt: "Allowed users"
+    password: false
+  - name: MINECRAFT_ALLOW_ALL_USERS
+    description: "Allow any player to talk to the bot (dev only)"
+    prompt: "Allow all users? (true/false)"
+    password: false
+  - name: MINECRAFT_HOME_CHANNEL
+    description: "Default player for cron / notification delivery"
+    prompt: "Home channel (player username)"
+    password: false
