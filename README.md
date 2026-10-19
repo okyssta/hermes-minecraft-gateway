@@ -37,7 +37,7 @@ The plugin lives at `~/.hermes/plugins/minecraft/`. Install it:
 
 ```bash
 # Clone or copy the plugin
-git clone https://github.com/kyssta-exe/hermes-minecraft-gateway ~/.hermes/plugins/minecraft
+git clone https://github.com/okyssta/hermes-minecraft-gateway ~/.hermes/plugins/minecraft
 # or symlink:
 ln -sf /path/to/hermes-minecraft-gateway ~/.hermes/plugins/minecraft
 
@@ -167,7 +167,7 @@ hermes-minecraft-gateway/
 
 ```bash
 # Clone the repo
-git clone https://github.com/kyssta-exe/hermes-minecraft-gateway
+git clone https://github.com/okyssta/hermes-minecraft-gateway
 cd hermes-minecraft-gateway
 
 # Install Python deps (none extra — uses Hermes gateway packages)

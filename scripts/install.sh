@@ -2,7 +2,7 @@
 set -e
 
 # Hermes Minecraft Gateway — one-shot install script
-# Usage: curl -fsSL https://raw.githubusercontent.com/kyssta-exe/hermes-minecraft-gateway/main/scripts/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/okyssta/hermes-minecraft-gateway/main/scripts/install.sh | bash
 
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 PLUGIN_DIR="${HERMES_HOME:-$HOME/.hermes}/plugins/minecraft"

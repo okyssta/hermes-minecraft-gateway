@@ -11,7 +11,7 @@
 
 ```bash
 # Clone the repo
-git clone https://github.com/kyssta-exe/hermes-minecraft-gateway ~/.hermes/plugins/minecraft
+git clone https://github.com/okyssta/hermes-minecraft-gateway ~/.hermes/plugins/minecraft
 
 # Install Node.js dependencies
 cd ~/.hermes/plugins/minecraft/bridge
